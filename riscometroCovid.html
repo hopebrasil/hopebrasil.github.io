@@ -101,10 +101,13 @@ footer {
         <div class="MaskBubble">
             <form action="/action_page.php">
             <div class="EachMaskBubble"><input type="radio" id="Nao" name="mask" checked="checked" onChange="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100)">
-            <label for="Nao">Sem máscara</label>
+            <label for="Nao">&nbsp;Sem máscara</label>
             </div>                   	                     
             <div class="EachMaskBubble"><input type="radio" id="Sim" name="mask" onChange="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100)">
-            <label for="Sim">Máscara de pano</label><br>
+            <label for="Sim">&nbsp;Máscara de pano</label><br>
+            </div>
+            <div class="EachMaskBubble"><input type="radio" id="PFF2" name="mask" onChange="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100)">
+            <label for="PFF2">&nbsp;Máscara qualidade PFF2</label><br>
             </div>
 			</form>
         </div> <!--End MaskBubble-->        
@@ -125,14 +128,15 @@ footer {
 		const TotalGaugeVal = (((document.getElementById("gaugeValue-" + Ambiente).valueAsNumber)) + ((document.getElementById("gaugeValue-" + Pessoas).valueAsNumber)*3) + ((document.getElementById("gaugeValue-" + Tempo).valueAsNumber))+ (document.getElementById("gaugeValue-" + Emissao).valueAsNumber)*2);	
 		// This is the main algorithm. Right now, Pessoas is weighted 3. Emissao is weighted 2. Other two factors are weighted at 1. 
 		var newGaugeDisVal = (Math.round(TotalGaugeVal/7));
-		const maskinput = document.getElementById("Sim"); //Checks for mask input radio. If checked, will decrease by 15.
-		if (maskinput.checked) {
-			newGaugeDisVal = (Math.round(TotalGaugeVal/7)-15);
+		const maskinputSim = document.getElementById("Sim"); //Checks for mask input radio. If cloth masks, reduces 20%. If PFF2, 70%
+		const maskinputPFF2 = document.getElementById("PFF2");
+		if (maskinputSim.checked) {
+			newGaugeDisVal = (Math.round(TotalGaugeVal/7)*0.80);
 //			document.getElementById("testing").innerHTML = newGaugeDisVal;
-			if (newGaugeDisVal<0) {
-				newGaugeDisVal = 0;
+		} else if(maskinputPFF2.checked) {
+			newGaugeDisVal = (Math.round(TotalGaugeVal/7)*0.30);
 			}
-		}
+		
 		const newGaugeVal = Math.floor((((newGaugeDisVal - min) / (max - min)) * 100));
 		document.getElementById('riskGauge').style.setProperty('--gauge-display-value', newGaugeDisVal);
 		document.getElementById('riskGauge').style.setProperty('--gauge-value', newGaugeVal); 	
