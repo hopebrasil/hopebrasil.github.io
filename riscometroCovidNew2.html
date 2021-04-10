@@ -139,16 +139,19 @@ footer {
 		const VT = (document.getElementById("gaugeValue-" + Tempo).valueAsNumber);
 		const VE = (document.getElementById("gaugeValue-" + Emissao).valueAsNumber);
 		//These are weights of each variable. Currently Pessoas weigh more because it is a large contributing factor.
-		const AWeight = 1;
-		const PWeight = 2;
-		const TWeight = 1;
-		const EWeight = 1;
+		const AWeight = 3;
+		const PWeight = 4;
+		const TWeight = 4;
+		const EWeight = 4.5;
 		//document.getElementById("testing1").innerHTML = AWeight + "<--A |" + PWeight + "<--P |" +TWeight + "<--T |" +EWeight + "<--E |";
 		//Converts all values to exponential increase to 100, as opposed to linear.
-		var ValueAmbiente = (VA**(1.5))/10;
 		var ValuePessoas = (VP**(1.5))/10;
-		var ValueTempo = (VT**(1.5))/10 * (ValueAmbiente / (Math.sqrt(ValueAmbiente*VT)));  //Tempo is dependent on Ambiente.
-		var ValueEmissao = (VE**(1.5))/10; 
+		var ValueAmbiente = (VA**(1.5))/10;
+
+		var ValueEmissao = ((VE**(1.5))/10); 
+//		var ValueTempo = (VT**(1.5))/10 * (ValueAmbiente / (Math.sqrt(ValueAmbiente*VT)));  //Tempo is dependent on Ambiente.
+//		var ValueTempo = Math.sqrt(Math.sqrt((VT**(1.5))/10 * (ValueAmbiente / (Math.sqrt(ValueAmbiente*VT)))*ValuePessoas)*ValueEmissao);
+		var ValueTempo = Math.sqrt((((VT**(1.5))/10)*(((ValueAmbiente) + (ValuePessoas))/2)));
 		document.getElementById("testing").innerHTML = "VA: " +ValueAmbiente + "|  VP: " + ValuePessoas + "| VT: " + ValueTempo + "| VE: " + ValueEmissao;
 		//const AWeight = (1 + (ValueAmbiente**(1.1))/100);
 		//const AWeight = 1;
@@ -173,8 +176,9 @@ footer {
 
 
 		document.getElementById("testing2").innerHTML = "TotalGaugeVal: " + TotalGaugeVal;
-		if (TotalGaugeVal<((AWeight+PWeight+TWeight+EWeight)*80)){
-			newGaugeDisVal = Math.round((TotalGaugeVal)/((AWeight+PWeight+TWeight+EWeight)*100)*100);
+		if (TotalGaugeVal<((AWeight+PWeight+TWeight+EWeight)*68)){
+			//Gambiarra!!  (70%, 80%)
+			newGaugeDisVal = Math.round((TotalGaugeVal)/((AWeight+PWeight+TWeight+EWeight)*73)*100); 
 			document.getElementById("testing3").innerHTML = "newGaugeDisVal= True: " + newGaugeDisVal;
 //			if (maskinputSim.checked) {
 //				newGaugeDisVal = (Math.round((TotalGaugeVal)/((AWeight+PWeight+TWeight+EWeight)*100)*100)*0.70);			
