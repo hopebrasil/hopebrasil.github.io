@@ -1,0 +1,226 @@
+.main_body {
+	padding: .5rem;
+	width: 80%;
+	max-width: 740px;
+	margin: 0 auto;
+}
+.row {
+	display:flex;
+	align-items:center;
+	padding:10px;
+
+}
+.column1 {
+	display:flex;
+
+}
+.column2 {
+
+}
+
+.RiskClass {
+	font-size: x-large;
+	text-align: center;
+		
+}
+
+
+
+
+.ImageContainer {
+	align: center;
+	width:75px;
+}
+.imagelabel {
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.MainSliderContainer {
+	width:100%;	
+	align-items:center;
+	
+}
+
+.slidertitle {
+	display:block;
+	margin: auto;
+	text-align:center;
+	font-size:x-large;
+	padding-bottom: 5px;
+}
+
+.slidercontainer {
+  	width:95%;
+
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #0CF;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #0CF;
+  cursor: pointer;
+}
+
+
+.gauge {
+  width: 100%;
+  max-width: 250px;
+  font-family: "Roboto", sans-serif;
+  font-size: 32px;
+  margin: 0 auto;
+
+}
+
+.gauge__body {
+	box-shadow: #999;
+  width: 100%;
+  height: 0;
+  padding-bottom: 50%;
+    background-image: url(colorwheel.png);
+	background-size: cover;
+  /*background: linear-gradient(90deg, rgba(9,204,0,1) 0%, rgba(255,255,0,1) 50%, rgba(255,0,0,1) 100%);*/  
+  
+/*  linear-gradient(
+	90deg,
+    #66B032 12.5%,
+    #B2D732 12.5%,
+    #B2D732 25%,
+    #FEFE33 25%,
+    #FEFE33 37.5%,
+    #FCCC1A 37.5%,
+    #FCCC1A 50%,
+	#FB9902 50%,
+	#FB9902 65.5%,
+	#FC600A	65.5%,
+	#FC600A 80%,
+	#FE2712 80%,
+	#FE2712	100%*/
+	
+  );
+  position: relative;
+  border-top-left-radius: 100% 200%;
+  border-top-right-radius: 100% 200%;
+  overflow: hidden;
+}
+
+.gauge__cover {
+  width: 75%;
+  height: 150%;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: .1rem solid black;
+  border-bottom: 0;
+
+  /* Text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 25%;
+  box-sizing: border-box;
+}
+
+/*.gauge__needle{
+	transform:rotate(calc(270deg * calc(var(--gauge-value,0deg)/ 100) - 45deg));
+	background:#000;
+	transform-origin: bottom right;
+	position: absolute;	
+	  left:5%;
+	top:95%;
+	width:45%;
+	height:5%;
+	margin-bottom:-4%;
+	background:#00000
+	transform: rotate(0deg);
+	} */
+	
+/*.gauge .gauge__body .gaugeNeedle{
+	position:relative;
+	left: 5%; 
+	top: 118px;
+	width: 45%; 
+	height: 85%;
+	transform-origin: center right;
+	border-bottom: 10px solid #000; 
+	transform:rotate(calc(180deg * calc(var(--gauge-value,0deg)/ 100)));
+	box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.38);
+	}	
+*/
+
+.gauge .gauge__body .gaugeNeedle{
+	position:relative;
+	left: 5%;
+	top:105px;
+	height:0;
+	width:0;
+	border-style: solid;
+	border-width: 6.5px 112px 6.5px 0;
+	border-color:transparent #000 transparent transparent;
+	transform-origin: center right;
+	transform:rotate(calc(180deg * calc(var(--gauge-value,0deg)/ 100)));
+	}
+	
+.gauge .gauge__body .gaugeNeedleCircle{
+	position:absolute;
+	width:30px;
+	height:30px;
+	border-radius: 50%;
+	background:#000000;
+	left: 45%;
+	bottom: 0;
+
+	}
+	
+.MaskInfoContainer{
+	font-size: medium;
+	border: 2px solid blue;
+}
+
+.H2 {
+	font-size:large;
+	border-top: 2px solid #0CF;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	font-weight: bold;
+}
+.MaskBubble{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.EachMaskBubble{
+	width:100%;
+	padding:5px;
+	align:right;
+	display:flex;
+	align-items:right;	
+}
+	

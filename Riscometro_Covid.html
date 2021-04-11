@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="Tw:@hope_brasil">
+<meta name="description" content="Riscômetro de contágio para covid-19.">
+<meta name="twitter:card" content="Quer saber se o ambiente é arriscado para contágio pelo covid-19?">
+<meta name="twitter:creator" content="@hope_brasil">
+<meta name="twitter:image: content="riscometroTwitter.jpg">
+<title>Riscômetro de Covid</title>
+<link rel="icon" type="image/png" sizes="32x32" href="faviconBig.png">
+<link rel="icon" type="image/png" sizes="16x16" href="faviconSmall.png">
+<link rel="stylesheet" href="riscometro_css.css">
+<style>
+body {
+  font-family: Verdana, sans-serif;
+
+}
+footer {
+	text-align: center;
+	padding: 3px;
+	font-size: x-small;
+}
+</style>
+</head>
+<body>
+<div class="main_body">
+    <div class="column_1">
+        <div><h1 align="center">Riscômetro</h1></div>
+        <div id="riskGauge" class="gauge">
+          <div class="gauge__body">
+            <div class="gauge__cover"></div>
+            <div class="gaugeNeedle"></div>
+            <div class="gaugeNeedleCircle"></div>
+          </div> 
+        </div> <!--End gauge-->
+    </div> <!--End "column_1-->
+    <div id="RiskDisplay" class="RiskClass">
+	Baixo
+    </div>
+    <div class="column_2">
+    	<div class="row" name="row1">
+        	<div class="ImageContainer"><img src="ambientePouco.gif" width="75" height="75" alt="Ar livre" />
+            	<div class="imagelabel"> Aberto, arejado</div>
+            </div>
+            <div class="MainSliderContainer">
+             	<label for="points"><div class="slidertitle">Ambiente</div></label><br />
+                <div class="slidercontainer">
+                <input  type="range" id="gaugeValue-riskGaugeA" class="slider" name="Ambiente" min="1" max="100" value="1" onInput="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT', 'riskGaugeE', 1, 100);" onChange="ThreeUpdateGauge('riskGaugeA','riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1,100);" />
+         		</div> <!--End slidercontainer div-->             
+            </div> <!--End MainSliderContainer div-->
+          <div class="ImageContainer"><img src="ambienteMuito.gif" width="75" height="75" alt="Lugar Fechado" />
+          	<div class="imagelabel"> Fechado</div>
+          </div>
+        </div> <!--End row1 -->
+         <div class="row" name="row2">
+        	<div class="ImageContainer"><img src="pessoasPouco.gif" width="75" height="75" alt="Pessoas distanciadas" />
+            	<div class="imagelabel"> Distanciado</div>            
+            </div>
+            <div class="MainSliderContainer">
+                <label for="points"><div class="slidertitle">Espaço entre pessoas</div></label><br />
+                <div class="slidercontainer">
+                <input type="range" id="gaugeValue-riskGaugeP" class="slider" name="Pessoas" min="1" max="100" value="1" onInput="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100);" onChange="ThreeUpdateGauge('riskGaugeA','riskGaugeP', 'riskGaugeT', 'riskGaugeE', 1, 100);" />
+             	</div><!--End slidercontainer div-->
+        	</div><!--End MainSliderContainer div-->
+           <div class="ImageContainer"><img src="pessoasMuito.gif" width="75" height="75" alt="Muitas pessoas aglomeradas" />
+            	<div class="imagelabel"> Aglomerado</div>
+           </div>
+        </div><!--End row2 -->
+         <div class="row" name="row3">
+        	<div class="ImageContainer"><img src="tempoPouxo.gif" width="75" height="75" alt="Pouco Tempo" />
+            	<div class="imagelabel">Pouco</div>
+            </div>
+            <div class="MainSliderContainer">
+				<label for="points"><div class="slidertitle">Tempo</div></label><br />  
+                <div class="slidercontainer">
+                <input type="range" id="gaugeValue-riskGaugeT" class="slider" name="Tempo" min="1" max="100" value="1" onInput="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT', 'riskGaugeE', 1, 100);" onChange="ThreeUpdateGauge('riskGaugeA','riskGaugeP', 'riskGaugeT', 'riskGaugeE', 1, 100);" />
+				</div><!--End slidercontainer div-->  
+            </div><!--End MainSliderContainer div-->
+			<div class="ImageContainer"><img src="tempoMuito.gif" width="75" height="75" alt="Muito Tempo" />
+            	<div class="imagelabel"> Muito</div>            
+            </div>
+        </div><!--End row3 -->
+         <div class="row" name="row4">
+        	<div class="ImageContainer"><img src="emissaoBaixo.gif" width="75" height="75" alt="Silenciosa" />
+            	<div class="imagelabel"> Em silêncio</div>            
+            </div>
+            <div class="MainSliderContainer">
+				<label for="points"><div class="slidertitle">Emissão</div></label><br />  
+                <div class="slidercontainer">
+                <input type="range" id="gaugeValue-riskGaugeE" class="slider" name="Emissao" min="1" max="100" value="1" onInput="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100);" onChange="ThreeUpdateGauge('riskGaugeA','riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100);" />
+				</div><!--End slidercontainer div-->  
+            </div><!--End MainSliderContainer div-->
+			<div class="ImageContainer"><img src="emissao.gif"  width="75" height="75" alt="Falando alto" />
+            	<div class="imagelabel"> Gritando, cantando</div>            
+            </div>
+        </div><!--End row4 -->
+    </div> <!--End "column_2"-->
+  <div id="MaskInfoContainer" align="center">
+    	<div class="H2">Uso de máscaras</div>
+        <div class="MaskBubble">
+            <form action="/action_page.php">
+            <div class="EachMaskBubble"><input type="radio" id="Nao" name="mask" checked="checked" onChange="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100)">
+            <label for="Nao">&nbsp;Sem máscara</label>
+            </div>                   	                     
+            <div class="EachMaskBubble"><input type="radio" id="Sim" name="mask" onChange="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100)">
+            <label for="Sim">&nbsp;Máscara de pano</label><br>
+            </div>
+            <div class="EachMaskBubble"><input type="radio" id="PFF2" name="mask" onChange="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100)">
+            <label for="PFF2">&nbsp;Máscara qualidade PFF2</label><br>
+            </div>
+			</form>
+        </div> <!--End MaskBubble-->        
+    </div><!--End MaskInfoContainer-->
+</div> <!--End "main_body"-->
+<footer>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>Riscômetro criado por <a href="https://twitter.com/hope_brasil" target="_new">@hope_brasil</a> baseado no estudo <a href="https://www.bmj.com/content/370/bmj.m3223" target="_new">Jones N R, Qureshi Z U, Temple R J, Larwood J P J, Greenhalgh T, Bourouiba L et al. Two metres or one: what is the evidence for physical distancing in covid-19? BMJ 2020; 370 :m3223</a></p>
+</footer>
+
+<script type="text/javascript">
+            //<![CDATA[
+
+
+			
+	function ThreeUpdateGauge(Ambiente, Pessoas, Tempo, Emissao, min, max) {
+		const VA = (document.getElementById("gaugeValue-" + Ambiente).valueAsNumber);
+		const VP = (document.getElementById("gaugeValue-" + Pessoas).valueAsNumber);
+		const VT = (document.getElementById("gaugeValue-" + Tempo).valueAsNumber);
+		const VE = (document.getElementById("gaugeValue-" + Emissao).valueAsNumber);
+		//These are weights of each variable. Tried to optimize them based on Jones et al. 2020
+		const AWeight = 3;
+		const PWeight = 4;
+		const TWeight = 4;
+		const EWeight = 4.5;
+		//Converts all values to exponential increase to 100, as opposed to linear. Values of Ambiente and Tempo are dependent on Pessoas and Ambiente respectively. Eg, time is only really relevant if there are people and closed environment.
+		var ValuePessoas = (VP**(1.5))/10;
+		var ValueAmbiente = (((VA**(1.5))/10))+(ValuePessoas*0.25);
+		var ValueEmissao = ((VE**(1.5))/10); 
+		var ValueTempo = Math.sqrt((((VT**(1.5))/10)*(((ValueAmbiente) + (ValuePessoas))/2)));
+		var TotalGaugeVal = ((ValueAmbiente*AWeight) + (ValuePessoas*PWeight) + (ValueTempo*TWeight)+ (ValueEmissao*EWeight));	
+		const maskinputSim = document.getElementById("Sim"); //Checks for mask input radio. If cloth masks, reduces 30%. If PFF2, 70% (assuming much mask leakage). Proper PFF2 usage would result in ~94% reduction.
+		const maskinputPFF2 = document.getElementById("PFF2");
+		var newGaugeDisVal;
+		if (maskinputSim.checked) {
+			TotalGaugeVal = TotalGaugeVal *0.70;
+			} else if(maskinputPFF2.checked) {
+				TotalGaugeVal = TotalGaugeVal *0.30;
+		}
+		//Values can be above the maximum amount, those are all set to 100 (max). 
+		if (TotalGaugeVal<(AWeight+PWeight+TWeight+EWeight)*68){
+			newGaugeDisVal = Math.round((TotalGaugeVal)/((AWeight+PWeight+TWeight+EWeight)*73)*100); 
+		} else {
+			newGaugeDisVal = 100;
+		}
+		//This part segments the increase (as opposed to smooth increase).
+		if (newGaugeDisVal<14) {
+				newGaugeDisVal= 1;
+				document.getElementById("RiskDisplay").innerHTML = "Baixo";	
+			} else if(newGaugeDisVal>=14&&newGaugeDisVal<29) {
+				newGaugeDisVal = 21;
+				document.getElementById("RiskDisplay").innerHTML = "Baixo";	
+			} else if(newGaugeDisVal>=29&&newGaugeDisVal<43) {
+				newGaugeDisVal = 36;
+				document.getElementById("RiskDisplay").innerHTML = "Médio";	
+			} else if(newGaugeDisVal>=43&&newGaugeDisVal<57) {
+				newGaugeDisVal = 50;
+				document.getElementById("RiskDisplay").innerHTML = "Médio";	
+			} else if(newGaugeDisVal>=57&&newGaugeDisVal<71) {
+				newGaugeDisVal = 66;
+				document.getElementById("RiskDisplay").innerHTML = "Médio";	
+			} else if(newGaugeDisVal>=71&&newGaugeDisVal<86) {
+				newGaugeDisVal = 81;
+				document.getElementById("RiskDisplay").innerHTML = "Alto";	
+			} else {
+				newGaugeDisVal = 100;
+				document.getElementById("RiskDisplay").innerHTML = "Alto";	
+		}
+		//For input into the needle rotation on the gauge.
+		const newGaugeVal = Math.floor((((newGaugeDisVal - min) / (max - min)) * 100));
+		document.getElementById('riskGauge').style.setProperty('--gauge-value', newGaugeVal); 	
+	}
+	
+	
+</script>
+            
+</body>
+</html>
