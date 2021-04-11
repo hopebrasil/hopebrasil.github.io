@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="riscometro_css.css">
 <style>
 body {
-  font-family: Verdana, sans-serif;
+  font-family: Roboto, sans-serif;
 
 }
 footer {
@@ -26,7 +26,7 @@ footer {
 <body>
 <div class="main_body">
     <div class="column_1">
-        <div><h1 align="center">Riscômetro</h1></div>
+        <div><h1 class="h1" align="center">Riscômetro</h1></div>
         <div id="riskGauge" class="gauge">
           <div class="gauge__body">
             <div class="gauge__cover"></div>
@@ -54,7 +54,7 @@ footer {
           </div>
         </div> <!--End row1 -->
          <div class="row" name="row2">
-        	<div class="ImageContainer"><img src="pessoasPouco.gif" width="75" height="75" alt="Pessoas distanciadas" />
+        	<div class="ImageContainer"><img src="pessoasPouco.gif" alt="Pessoas distanciadas" width="75" height="75" align="center" />
             	<div class="imagelabel"> Distanciado</div>            
             </div>
             <div class="MainSliderContainer">
@@ -63,12 +63,12 @@ footer {
                 <input type="range" id="gaugeValue-riskGaugeP" class="slider" name="Pessoas" min="1" max="100" value="1" onInput="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100);" onChange="ThreeUpdateGauge('riskGaugeA','riskGaugeP', 'riskGaugeT', 'riskGaugeE', 1, 100);" />
              	</div><!--End slidercontainer div-->
         	</div><!--End MainSliderContainer div-->
-           <div class="ImageContainer"><img src="pessoasMuito.gif" width="75" height="75" alt="Muitas pessoas aglomeradas" />
+           <div class="ImageContainer"><img src="pessoasMuito.gif" alt="Muitas pessoas aglomeradas" width="75" height="75" align="middle" />
             	<div class="imagelabel"> Aglomerado</div>
            </div>
         </div><!--End row2 -->
          <div class="row" name="row3">
-        	<div class="ImageContainer"><img src="tempoPouxo.gif" width="75" height="75" alt="Pouco Tempo" />
+        	<div class="ImageContainer"><img src="tempoPouxo.gif" width="75" height="75" align="center" alt="Pouco Tempo" />
             	<div class="imagelabel">Pouco</div>
             </div>
             <div class="MainSliderContainer">
