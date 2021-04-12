@@ -235,3 +235,40 @@ h1 {
 	align-items:right;	
 }
 	
+#main_riscometro .tooltipImage {
+	display: flex;
+}
+	
+/* Tooltip container */
+#main_riscometro .tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+#main_riscometro .tooltip .tooltiptext {
+	display: flex;
+  visibility: hidden;
+  width: 300px;
+  background-color: #CCC;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 1.3em;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+#main_riscometro .tooltip:hover .tooltiptext {
+  display: flex;
+  align-items: center;
+  visibility: visible;
+  width: 350px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}

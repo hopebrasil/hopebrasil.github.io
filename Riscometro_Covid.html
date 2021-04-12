@@ -109,16 +109,32 @@ footer {
             <form action="/action_page.php">
             <div class="EachMaskBubble"><input type="radio" id="Nao" name="mask" checked="checked" onChange="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100)">
             <label for="Nao">&nbsp;Sem máscara</label>
-            </div>                   	                     
-            <div class="EachMaskBubble"><input type="radio" id="Sim" name="mask" onChange="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100)">
-            <label for="Sim">&nbsp;Máscara de pano</label><br>
+            </div>  
+              
+            <div class="tooltip">                 	                     
+                <div class="EachMaskBubble"><input type="radio" id="Sim" name="mask" onChange="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100)">
+                <label for="Sim">&nbsp;Máscara de pano</label><br>
+                </div>
+                <span class="tooltiptext">
+                    <div class="tooltipImage"><img src="Mascarapano.png" width="100" height="100" alt="PFF2"></div>
+                    Máscaras de pano conferem proteção baseado nos números de camadas, material e uso correto. Redução média de 40%.
+                </span>
             </div>
-            <div class="EachMaskBubble"><input type="radio" id="PFF2" name="mask" onChange="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100)">
-            <label for="PFF2">&nbsp;Máscara qualidade PFF2</label><br>
-            </div>
-			</form>
+    		<div class="tooltip">            
+                <div class="EachMaskBubble"><input type="radio" id="PFF2" name="mask" onChange="ThreeUpdateGauge('riskGaugeA', 'riskGaugeP', 'riskGaugeT',  'riskGaugeE', 1, 100)">
+                <label for="PFF2">&nbsp;Máscara qualidade PFF2</label><br>
+                </div>
+      			<span class="tooltiptext">
+                <div class="tooltipImage"><img src="MascaraPFF2.png" width="100" height="100" alt="PFF2"></div>
+                Máscaras de qualidade PFF2 filtram até 94% de partículas. 
+                </span>
+            </div>			
+    		</form>
         </div> <!--End MaskBubble-->        
     </div><!--End MaskInfoContainer-->
+
+    
+
 </div> <!--End "main_body"-->
 <footer>
       <p>&nbsp;</p>
